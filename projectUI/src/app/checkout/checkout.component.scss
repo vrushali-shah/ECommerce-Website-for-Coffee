@@ -1,0 +1,25 @@
+@import '../../scss/main.scss';
+#pay-div{
+    float:right;
+    width:0;
+    button{
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    margin-right: 135px;
+    margin-bottom: 25px;
+    background-color: $blackish-color;
+    border: none;
+    &:hover{
+        background-color:rgba($secondary-color,0.8); 
+        border: none;
+    }
+    }
+}
+.toast{
+    display: inline;
+    top:10%;
+    left:40%;
+    position: fixed;
+    z-index: 1;
+  }

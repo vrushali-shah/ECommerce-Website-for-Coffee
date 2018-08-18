@@ -1,0 +1,120 @@
+@import '../../scss/main.scss';
+ #map {
+  margin: 20px;
+  height: 86%;
+  width: 50%;
+  position: absolute;
+  display: block;
+  }
+  #title{
+    font-family: "Gotham SSm A","Gotham SSm B","Montserrat",sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 10px 0;
+    width: 70%;
+    text-align: center;
+    background:$secondary-color;
+    color:$primary-color;
+    @include round-corners(10px 10px 0px 0px);
+  }
+  .side-bar{
+    width: 35%;
+    float: right;
+    padding: 10px;
+    margin: 10px;
+  }
+  #list, .list_title{
+    width:70%;
+    padding: 10px;
+    overflow: auto;
+    max-height: 250px;
+    background:$secondary-color;
+    @include round-corners(3px 3px 3px 3px);
+  }
+  .list_title{
+    height: auto;
+    font-family: "Gotham SSm A","Gotham SSm B","Montserrat",sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 10px 0;
+    text-align: left;
+    color:$primary-color;
+    border-bottom: 1px solid $primary-color;
+    padding-left: 15px;
+    select{
+      float: right;
+      font-size: 14px;
+      margin: 3px 20px 0 0;
+      float: right;
+    }
+ }
+  #contorls{
+    background:$secondary-color;
+    padding: 5px;
+    width: 70%;
+    @include round-corners(0px 0px 10px 10px);
+  }
+  input[type="text"]{
+    margin: 5px 0 5px 0; 
+   
+  }
+  input[type="text"]+div{
+    button{
+      margin: 5px 0 5px 0;
+    }
+  } 
+  .store{
+    width: 100%;
+    height:auto;
+    position: relative;
+    word-wrap: break-word;
+    border-bottom: 1px solid $primary-color;
+    padding:5px;
+   
+    &:hover{
+      .store_name{
+      color:$primary-color;
+    }
+    }
+    .store_name{
+      text-transform: UPPERCASE;
+      font-weight:700;
+      color: $primary-color;
+    }
+    .store_address{
+      font-family: Gotham SSm A;
+      font-style: normal;
+      font-weight: 400;
+      color: $primary-color;
+    }
+    .rating{
+      color: $primary-color;
+    }
+  }
+  .list-container{
+    overflow: hidden;
+  }
+  .selected{
+    background:rgba($blackish-color,0.6);
+    .store_name{
+      color:$primary-color;
+    }
+  }
+.btn{
+  background: rgba($blackish-color,0.72);
+    img {
+      height:  20px;
+      width: 20px;
+      @include filter(brightness(0) invert(1));
+      @include transition(.3s ease-in-out);
+    }
+}
+.nearby{
+  background-color:$secondary-color;
+  &:hover{
+    background-color: $primary-color;
+    font-weight: bold;
+  }
+}

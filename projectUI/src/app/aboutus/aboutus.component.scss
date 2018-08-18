@@ -1,0 +1,236 @@
+@import '../../scss/main.scss';
+ 
+  /* padded section */
+  .pad-section {
+    padding: 50px 0;
+  }
+  .pad-section img {
+    width: 100%;
+  }
+  /* vertical-centered text */
+  .text-vcenter {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .text-vcenter h1 {
+    font-size: 4.5em;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+  }
+  /* additional sections */
+  #home {
+    background: url("/assets/images/giffy.gif") no-repeat center center fixed;
+    display: table;
+    height: 400px;
+    position: relative;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+  }
+  #about {
+  }
+  #services {
+    background-color: rgba($secondary-color,0.3);
+    color: #ffffff;
+  }
+  #services .glyphicon {
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 60px;
+    height: 100px;
+    line-height: 90px;
+    text-align: center;
+    vertical-align: middle;
+    width: 100px;
+    font-size: 12pt;
+  }
+  #google_map {
+    background: url("/assets/images/background01.jpg") no-repeat center center fixed;
+    display: table;
+    height: 800px;
+    position: relative;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  i{
+    filter: brightness(1)invert(1);
+  }
+  #information .panel {
+    opacity: 0.85;
+  }
+  #google_map {
+    height: 500px;
+  }
+  footer {
+    padding: 20px 0;
+    background-color: $secondary-color;
+  }
+  footer .glyphicon {
+    color: #333333;
+    font-size: 60px;
+  }
+  footer .glyphicon:hover {
+    color: #306d9f;
+  }
+  header {
+    align-items: center;
+    display: flex;
+    font-size: 18px;
+    height: 65vh;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    transform-style: preserve-3d;
+    perspective: 100px;
+    font-family: fantasy; 
+  }
+  header:before {
+    background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.8)),
+                url(https://cssanimation.rocks/levelup/public/images/background.jpg) no-repeat bottom;
+    background-size: cover;
+    content: "";
+    position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    z-index: -1;
+  }
+  header:after {
+    background: #F9FCFF;
+    content: "";
+    height: 40rem;
+    left: -5%;
+    position: absolute;
+    right: -5%;
+    top: 90%;
+    transform-origin: 0 0;
+    transform: rotateZ(-4deg);
+    z-index: 0;
+  }
+  .header-title, .header-subtitle {
+    color: #fff;
+  } 
+  .header-subtitle {
+    text-transform: uppercase;
+  }
+  .header-button {
+    transform: translateZ(.1px);
+    position: relative;
+    z-index: 10;
+  }
+  @keyframes pop-in {
+    0% {
+      opacity: 0;
+      transform: translateY(-4rem) scale(.8);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .animate-pop-in {
+    animation: pop-in .6s ease-out forwards;
+  }
+  .coffee-mug{
+	background: #3F2616;
+	position: relative;
+	margin: 150px auto;
+	width: 150px;
+	height: 130px;
+	border-radius: 50%;
+  margin-bottom:160px;
+	/* the following box-shadow values are going to create the coffee mug, a coffee ring, and some coffee splatters (our mug is a little leaky) */
+	box-shadow: 0 0 0 10px #442918,
+							 0 0 0 25px #3C2415,
+							 0 0 0 42px #E4E6B2,
+							 0 0 0 65px #EFF0D1,
+							 0 120px 0 -25px #3C2415,
+							 100px 70px 0 -25px #3C2415,
+							 80px 140px 0 -10px #3C2415,
+							 0px 210px 0 -55px #3C2415,
+							 20px 250px 0 -65px #3C2415;
+}
+/* cool right? except the mug needs a handle */
+.coffee-mug::before{
+	content: '';
+	position: absolute;
+	background: #EFF0D1;
+	height: 80px;
+	width: 60px;
+	top: -85px;
+	right: -75px;
+	border-radius: 5px;
+	box-shadow: inset 0px 50px 0 0px #EFF0D1;
+	/* transform lets us rotate the handle on an angle */
+	transform: rotate(45deg);
+}
+.BigFont{
+
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 15pt;
+  float: center ;
+}
+/* that coffee could look a little more realistic. let's add a simple ripple effect */
+.coffee-mug::after{
+	content: '';
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	position: absolute;
+	border: 3px solid #77665C;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	top: 0;
+	bottom: 0;
+	margin-top: auto;
+	margin-bottom: auto;
+	opacity: 0.2;
+	/* a little bit of animation */
+	animation: rings 3s ease-out infinite;
+}
+@keyframes rings{
+	to{
+		width: 150px;
+		height: 150px;
+		opacity: 0;
+	}
+}
+#Award {
+  background: url("/assets/images/best.png") no-repeat center center fixed;
+  display: table;
+  height: 614px;
+  position: relative;
+  width: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body {
+  background-color:#ce3635;
+  text-align: center;
+  color:black;
+  padding-top:10em;
+}
+* { color:black; text-decoration: none;}
+body.header-title{
+  color:blue; 
+}
+.text-vcenter>h3{
+color: blue;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 40pt;
+  }

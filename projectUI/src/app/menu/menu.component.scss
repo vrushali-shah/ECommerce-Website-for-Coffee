@@ -1,0 +1,112 @@
+@import '../../scss/main.scss';
+$text-font: Arial, Helvetica, sans-serif;
+$img-height: 200px;
+$img-width: 200px;
+
+.img-section{
+    img{
+    height: $img-height;
+    width: $img-width;
+    display: block;
+    margin: 20px auto 10px auto;
+    @include shadow(1px 1px 2px 2px);
+   
+}
+}
+.image-main-section{
+    border-bottom: 1px solid rgba($blackish-color,0.4);
+    padding-bottom: 30px;
+}
+.img-desc{
+    height: 80%;
+}
+.img-part{
+    margin-bottom: 30px;
+}
+.controls{
+    height: 20%;
+    margin-top: 10%;
+    a{
+        &:first-child{
+        color: $primary-color;
+        border:1px solid rgba($secondary-color,1);
+        background: rgba($secondary-color,0.6);
+            padding-right: 5px;
+            &:hover{
+            background: rgba($secondary-color,0.8);
+            @include shadow(0px 0px 2px 2px rgba($secondary-color,0.4));
+            }
+        }
+       &:last-child{
+        color: $primary-color;
+        border:1px solid rgba($secondary-color,1);
+        background: rgba($secondary-color,0.6);
+        &:hover{
+            background: rgba($secondary-color,0.8);
+            @include shadow(0px 0px 2px 2px rgba($secondary-color,0.4));
+        }
+       }
+    }
+}
+h3, p{
+    font-family: $text-font;
+}
+.section2_parallax{
+  background-color: whitesmoke;
+  height: 1500px;
+}
+.glyphicon{
+    width: 20px;
+    height: 20px;
+}
+#quantity{
+    width: 40px;
+    height: 40px;
+}
+
+.toast{
+    display: inline;
+    top:10%;
+    left:40%;
+    position: fixed;
+    z-index: 1;
+  }
+  
+#head{
+height: 80px;
+.small-search-right {
+  display: flex;
+  float: right;
+  width: 20%;
+ 
+  a {
+    cursor: pointer;
+    background-color: $secondary-color;
+    border: 1px rgba($secondary-color,0.5) solid;
+    &:hover{
+        border: 1px rgba($secondary-color,0.5) solid;
+        @include shadow(0px 0px 2px 2px rgba($blackish-color,0.4));
+    }
+    img {
+      width: 25px;
+      height: 30px;
+      @include filter(brightness(0) invert(1));
+      @include transition(.3s ease-in-out);
+      &:hover { 
+        @include transform(rotate(90deg));
+      }
+      
+    }
+
+  }
+}
+}
+.image-main-section:nth-child(even) {
+    background-color: #eaeaea;
+    color:$blackish-color;
+}
+
+.image-main-section:nth-child(odd) {
+    background-color: #f3f3f3;
+    color:$blackish-color;
+}

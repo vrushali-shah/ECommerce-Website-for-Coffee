@@ -1,0 +1,51 @@
+@import "./../../scss/main.scss";
+
+.active{
+    background: rgba($primary-color, 0.2);
+}
+:host{
+    width: 100%;
+    z-index: 100;
+}
+.cart{
+    &:hover{
+        cursor: pointer;
+    }
+    img{
+        filter: brightness(1) invert(1);
+        height:25px;
+        width: 30px;
+    }
+}
+#profile{
+    color: $primary-color;
+    margin-left: 10px;
+    &:hover{
+        cursor: pointer;
+    }
+    img{
+        @include round-corners(5px);
+    }
+    a{
+        display: inline;
+    }
+}
+.navbar{
+    background: $secondary-color;
+}
+.nav-link{
+    color: $primary-color;
+}
+.cafename{
+    color: white;
+    img{
+        width: 30px;
+    }
+}
+#logout{
+    a{
+    color: $primary-color;}
+    &:hover{
+        cursor: pointer;
+    }
+}

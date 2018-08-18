@@ -1,0 +1,82 @@
+<br /><br />
+<div style="padding-left:35px;">
+  <h2 class="title">User Profile</h2>
+  <div class="dp hvr-buzz">
+    <img src="{{avatar}}" />
+  </div>
+  <br /><br />
+  <button class="hvr-buzz-out" id="addText" (click)="show1 = !show1" title="Add Text">
+      <img src="/assets/svg/plus.svg" alt="Personal Details">
+  </button>&nbsp;
+  <label class="lead"><h4> Personal Details</h4></label>&nbsp;
+  <hr />
+  <div class="container" *ngIf="show1">
+    <div class="card" style="padding:25px;">
+      <div>
+        <label class="lead"><h4>Name: </h4></label>&nbsp;
+        <label class="lead"><b>{{details.name}} </b></label>&nbsp;
+      </div>
+      <div>
+        <label class="lead"><h4>Email Address: </h4></label>&nbsp;
+        <label class="lead"><b>{{details.email}} </b></label>&nbsp;
+      </div>
+    </div>
+  </div>
+  <br />
+  <br />
+  <!-- Order History-->
+    <button class="hvr-buzz-out" id="addText" (click)="show2 = !show2" title="Add Text">
+      <img src="/assets/svg/plus.svg" alt="Order History">
+    </button>&nbsp;
+    <label class="lead"><h4> Order History</h4></label>&nbsp;
+  <hr />
+  <div class="container" *ngIf="show2">
+    <div class="card" style="padding:25px;">
+        <h5>Order Details: </h5>
+      <br />
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Order Date:</th>
+            <th>Order ID:</th>
+            <th>Place Name:</th>
+            <th>Place Address:</th>
+            <th>Total Price:</th>
+          </tr>
+        </thead>
+        <ng-container *ngFor="let p of details.orderHistory">
+          <tr (click)="selectedOrder=p;show3='true'">
+            <td>{{p.orderDate|date: 'dd/MM/yyyy'}}</td>
+            <td>{{p._id}}</td>
+            <td>{{p.placeName}}</td>
+            <td>{{p.placeAddress}}</td>
+            <td>{{p.totalCost|currency:'USD':'1.0-2'}}</td>
+          </tr>
+        </ng-container>
+      </table>
+    </div>
+  </div>
+  <br />
+  <br />
+  <!-- Payment Details -->
+  <button class="hvr-buzz-out" id="addText" title="Add Text">
+      <img src="/assets/svg/plus.svg" alt="Payment Details">
+    </button>
+  <label class="lead"><h4>Payment Details</h4></label>&nbsp;
+  <hr />
+  <div class="container" *ngIf="show3">
+    <div class="card" style="padding:25px;">
+       <div>
+        <label class="lead"><h4>Card Holder Name: </h4></label>&nbsp;
+        <label class="lead"><b>{{selectedOrder.payment.holderName}} </b></label>&nbsp;
+      </div>
+      <div>
+        <label class="lead"><h4>Card Number: </h4></label>&nbsp;
+        <label class="lead"><b>{{selectedOrder.payment.cardNumber.substring(0, 4) + "************"}} </b></label>&nbsp;
+      </div>
+    </div>
+  </div>
+  <br />
+  <br />
+</div>
+

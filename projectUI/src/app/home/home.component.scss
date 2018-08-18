@@ -1,0 +1,79 @@
+@import '../../scss/main.scss';
+.pad-section {
+  padding: 10px 0;
+  height:275px;
+}
+.pad-section img {
+  width: 100%;
+}
+#about {
+  background-color: yellow;
+  position: relative;
+  top: 172px;
+}
+h2{
+  float:right;
+}
+#services {
+  background-color: #453833;
+  color: #ffffff;
+  position: relative;
+  top: 224px;
+}
+#services .glyphicon {
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 60px;
+  height: 140px;
+  line-height: 140px;
+  text-align: center;
+  vertical-align: middle;
+  width: 140px;
+}
+#services2 {
+  background-color:#fff;
+  position: relative;
+  top: 175px;
+}
+footer {
+  padding: 10px 0;
+  background-color: $secondary-color;
+  position: relative;
+  top: 172px;
+}
+footer .glyphicon {
+  color: #333333;
+  font-size: 60px;
+}
+footer .glyphicon:hover {
+  color: #306d9f;
+}
+img{
+  height:400px;
+}
+.whycoffee {
+  margin-top: -6px;
+}
+.whycoffeecontents {
+  margin-top: -18px;
+  padding:10px;
+}
+.learnmore{
+    line-height:35px;
+    background: rgba($secondary-color,0.6);
+    width: 300px;
+    height: 80px;
+    font-size: 30px;
+    color: $primary-color;
+    border:1px solid rgba($secondary-color,1);
+    @include round-corners(5px);
+    &:hover{
+      background: rgba($secondary-color,0.8);
+      @include shadow(0px 0px 2px 2px rgba($secondary-color,0.4));
+    }
+  
+}
+#left, #right{
+  filter: brightness(1) invert(1);
+}

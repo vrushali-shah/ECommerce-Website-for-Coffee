@@ -1,0 +1,7 @@
+<div class="toast alert alert-dismissable" [ngClass]="isSuccess?'alert-success':'alert-danger'"[@visibilityChanged]="visiblityState">
+        {{msg}}
+</div>
+<app-stores></app-stores>
+<div id="pay-div">
+<button type="submit" [disabled]="stores.selectedStore==null" class="store btn btn-primary btn-submit-fix btn-lg btn-success hvr-buzz-out"(click)="toPay()">Continue to pay</button>
+</div>

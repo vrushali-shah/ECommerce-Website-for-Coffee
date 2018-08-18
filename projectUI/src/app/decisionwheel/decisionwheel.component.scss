@@ -1,0 +1,42 @@
+@import "./../../scss/main.scss";
+
+.container{
+  position: relative;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  color:$secondary-color;
+}
+.btn-div{
+    position: absolute;
+    bottom: -300px;
+    padding: 30px;
+    width: inherit;
+    left: 0px;
+    width: 300px;
+    button{
+    &:last-child{
+      float: right;
+    }}
+}
+div button{
+  color: $primary-color;
+  border:1px solid rgba($secondary-color,1);
+  background: rgba($secondary-color,0.6);
+  &:hover{
+      background: rgba($secondary-color,1);
+  @include shadow(0px 0px 2px 2px rgba($secondary-color,0.4));
+  }
+  display: none;
+}
+#arrow{
+  width: 3%;
+  position: absolute;
+  left: 125px;
+  z-index: 1000;
+ 
+}
+#wheel{
+  position: absolute;
+  margin:15px;
+}

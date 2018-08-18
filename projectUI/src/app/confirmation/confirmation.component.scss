@@ -1,0 +1,63 @@
+@import "./../../scss/main.scss";
+
+td:first-child {
+  width:500px;
+}
+table {
+  width: 750px;
+  border: ridge;
+  grid-column: start;
+  border: 1px groove;
+  border-collapse: collapse;
+
+  thead tr th {
+    width: 500px;
+  }
+
+  thead tr td {
+    width: 50px;
+    padding-left: 10px;
+  }
+}
+thead tr th{
+  background-color: rgba($secondary-color,0.5);
+  border-bottom:groove;
+}
+tfoot tr th {
+  background-color: rgba($secondary-color,0.5);
+  border-top: groove;
+  &:first-child{
+  text-align: right;}
+  &:last-child{
+    text-align: center;
+  }
+}
+.title {
+  line-height: 65px;
+  background-color: rgba($blackish-color,0.76);
+  color: $primary-color;
+}
+.outerbox {
+  padding-left: 15px;
+  text-align:center;
+}
+#print-section {
+  border: solid;
+  padding-bottom:15px;
+}
+.contents {
+  text-align: left;
+  padding-left: 121px;
+  font-size:large;
+}
+.print-btn{
+  color: $primary-color;
+  border:1px solid rgba($secondary-color,1);
+  background: rgba($secondary-color,0.6);
+  width: 15%;
+  padding: 10px;
+  &:hover{
+      background: rgba($secondary-color,1);
+  @include shadow(0px 0px 2px 2px rgba($secondary-color,0.4));
+  }
+}

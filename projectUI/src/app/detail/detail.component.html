@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="toast alert alert-dismissable" [ngClass]="isSuccess?'alert-success':'alert-danger'"[@visibilityChanged]="visiblityState">
+        {{msg}}
+      </div>
+  <div class="card">
+    <div class="container-fliud">
+      <div class="wrapper row">
+        <div class="preview col-md-6">
+          <div class="preview-pic tab-content">
+            <div class="tab-pane active" id="pic-1">
+              <img src="{{product.image}}">
+            </div>
+          </div>
+        </div>
+        <div class="details col-md-6">
+          <h3 class="product-title">{{product.name}}</h3>
+          <p class="product-description">
+            {{product.description}}
+          </p>
+          <b class="price">Price:
+            <span class="animated fadeIn">{{product[selectedSize]|currency:'USD':'1.0-2'}}</span>
+          </b>
+          <p class="product-size">
+            <b>Size:</b>
+            <span>
+              <select [ngModel]="selectedSize" (ngModelChange)="onSizeChange($event)" name="size-type" class="product-size" style="width:60px;"
+                required>
+                <option *ngFor="let item of size" [ngValue]="item.name" ng-selected="'medium'==item.name">{{item.size}}</option>
+              </select>
+            </span>
+          </p>
+          <p class="product-quantity">
+            <b>Quantity:</b>
+            <span>
+              <input #qty type="number" class="form-control text-center product-qty" style="width:60px;" value="1" min="1" max="10">
+            </span>
+          </p>
+          <div class="action">
+            <button class="add-to-cart btn btn-danger hvr-shrink" type="button" id="addToCart" (click)="addToCart()">Add to Cart</button>
+            <button class="like btn btn-danger hvr-shrink" type="button" id="liked">
+              <span class="fa fa-heart"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="map-holder">
+  <div id="map" #map></div>
+  <div class="side-bar">
+    <div id="title">Enter your location</div>
+    <div id="contorls">
+      <div class="input-group mb-2">
+        <input type="text" class="form-control" [(ngModel)]="zipcode" aria-label="Zipcode" aria-describedby="basic-addon2" placeholder="Address or zipcode">
+        <div class="input-group-append">
+          <button class="btn btn-secondary hvr-pulse" (click)="getCafesFromZip(); show =true" type="button">
+            <img src="../../assets/images/icon-search-m.svg" />
+          </button>
+        </div>
+      </div>
+      <button (click)="getLocation(); show = true" class="hvr-buzz-out btn btn-outline-light mb-2 btn-block nearby">Get cafes near your </button>
+    </div>
+    <!-- display list -->
+    <br />
+    <div *ngIf="show">
+        <div class="list_title">
+            <b>List of Cafes</b>
+            <select [ngModel]="orderBy" class="selectpicker show-menu-arrow" (ngModelChange)="sort($event)">
+              <option value="relevance">Relevance</option>
+              <option value="asc">A-Z</option>
+              <option value="desc">Z-A</option>
+            </select>
+          </div>
+      <div id="list" #list class="animated fadeIn">
+        <div class="store hvr-curl-top-right animated slideInLeft" *ngFor="let store of stores;let i=index" id="place_{{i}}" [ngClass]="{'selected':store.selected}"
+          (click)="listClick($event,store)">
+          <div>
+            <span class="store_name">{{store.store.name}}</span>
+            <br />
+            <span class="store_address">{{store.store.vicinity}}</span>
+            <span *ngIf="store.store.rating" class="rating">
+              <br/>
+              <i>Rating: {{store.store.rating}}</i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

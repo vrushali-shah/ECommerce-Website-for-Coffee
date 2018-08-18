@@ -1,0 +1,21 @@
+<br />
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1 class="form-signin-heading text-danger font-weight-bold text-left mt-5">Sign In</h1>
+      <p class="lead">Not a member? Please <a routerLink="/register">Register</a> instead.</p>
+      <form [formGroup]="SigninForm" (submit)="login()">
+        <div class="form-group">
+          <label for="email"><strong>Email address</strong></label>
+          <input type="email" class="form-control" name="email" placeholder="Enter email" formControlName="email" [(ngModel)]="credentials.email">
+        </div>
+        <div class="form-group">
+          <label for="password"><strong>Password</strong></label>
+          <input type="password" class="form-control" name="password" placeholder="Password" formControlName="password" [(ngModel)]="credentials.password">
+        </div>
+        <button type="submit" class="hvr-wobble-vertical btn btn-primary btn-lg btn-block" [disabled]="!SigninForm.valid">SIGN IN</button>
+      </form>
+      <span>{{msg}}</span>
+    </div>
+  </div>
+</div>

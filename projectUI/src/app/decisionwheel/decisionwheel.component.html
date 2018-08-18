@@ -1,0 +1,11 @@
+<div class="container">
+  Spin the wheel and score some amazing discounts!
+  <div >
+    <img id="arrow" src="https://image.flaticon.com/icons/svg/25/25224.svg">
+    <img #wheel id="wheel" src="/assets/images/wheel.gif">
+  </div>
+  <div class="btn-div">
+    <button [disabled]="used" (click)="start()">Start</button>
+    <button (click)="stop()">Stop</button>
+  </div>
+</div>

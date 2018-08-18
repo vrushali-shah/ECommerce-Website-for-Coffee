@@ -1,0 +1,97 @@
+<div class="toast alert alert-dismissable" [ngClass]="isSuccess?'alert-success':'alert-danger'"[@visibilityChanged]="visiblityState">
+        {{msg}}
+</div>
+
+<div style="padding:0 15px 0 15px;">
+  <br /> <h1 class="text-uppercase font-weight-bold text-center" style="display:inline-block">Cart</h1><br />
+  <div class="shopping-cart">
+      <ng-container *ngIf="productList.length>0;else empty">
+    <div class="column-labels">
+      <label class="product-image">Image</label>
+      <label class="product-details">Product</label>
+      <label class="product-size">Size</label>
+      <label class="product-price">Price</label>
+      <label class="product-quantity">Quantity</label>
+      <label class="product-removal">Remove</label>
+      <label class="product-line-price">Total</label>
+    </div>
+    <!-- display items -->
+    <div class="product" *ngFor="let item of productList;let p_index=index">
+      <div class="product-image">
+        <img src="{{item.product.image}}">
+      </div>
+      <div class="product-details">
+        <div class="product-title">{{item.product.name}}</div>
+        <p class="product-description"></p>
+      </div>
+      <div class="product-size">
+            <select [(ngModel)]="item.size" (ngModelChange)="calcTotal($event)" name="size-type" class="product-size" style="width:60px;"
+              required>
+              <option *ngFor="let s of size" [ngValue]="s.name" ng-selected="item.size==s.name">{{s.size}}</option>
+            </select>
+        </div>
+      <div class="product-price">{{item.product[item.size]}}</div>
+      <div class="product-quantity">
+        <input type="number" [(ngModel)]="item.qty" (ngModelChange)="calcTotal($event)" min="1" max="10">
+      </div>
+      <div class="product-removal">
+        <button class="remove-product" (click)="removeProduct(item)">
+          <img src="https://www.flaticon.com/premium-icon/icons/svg/484/484611.svg">
+        </button>
+      </div>
+      <div class="product-line-price">
+        {{item.qty*item.product[item.size]|currency:'USD':'1.0-2'}}
+      </div>
+    </div>
+      </ng-container>
+  <ng-template #empty >
+    <a class="btn hvr-wobble-vertical animated bounce-in-down" id="empty" (click)="goToMenu() "> Lets get some coffee!</a>
+  </ng-template>
+  </div>
+</div> 
+
+<!-- Promo Code and Total -->
+<div class="container">
+  <div class="container-fliud">
+      <div class="wrapper row">
+        <div class="preview col-md-6">
+          <div class="preview-pic tab-content">
+            <div class="tab-pane active" id="pic-1" style="position:relative">
+              <ng-container *ngIf="productList.length>0">
+              <decision-wheel></decision-wheel>
+              <div class="btn-div">
+                  <button [disabled]="used" (click)="start()">Start</button>
+                  <button [disabled]="used2" (click)="stop()">Stop</button>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <ng-container *ngIf="productList.length>0">
+        <div class="details col-md-6">
+          <div class="totals">
+            <div class="totals-item">
+              <label>Subtotal</label>
+              <div class="totals-value" id="cart-subtotal">{{total|currency:'USD':'1.0-2'}}</div>
+            </div>
+            <div class="totals-item">
+                <label>Discount </label>
+                <div class="totals-value" id="cart-subtotal">{{discount|currency:'USD':'1.0-2'}}</div>
+              </div>
+            <div class="totals-item">
+              <label>Tax (6.25%)</label>
+              <div class="totals-value" id="cart-tax">{{tax|currency:'USD':'1.0-2'}}</div>
+            </div>
+            <div class="totals-item totals-item-total">
+              <label>Grand Total</label>
+              <div class="totals-value" id="cart-total">{{grandTotal|currency:'USD':'1.0-2'}}</div>
+            </div>
+          </div>
+          <button class="checkout hvr-shadow-radial"(click)="onCheckout()">Checkout</button>
+          <button (click)="save()" class="checkout hvr-shadow-radial" [disabled]="!auth.isLoggedIn()">Save Cart</button> 
+        </div>
+        </ng-container>
+      </div>
+   </div>
+</div>
+<br /><br />

@@ -1,0 +1,43 @@
+<!-- search -->
+<br />
+<div class="container" id="cold">
+    <div id="head">
+  <h1 class="text-uppercase font-weight-bold text-center" style="display:inline-block">Menu</h1>
+  <div class="toast alert alert-dismissable" [ngClass]="isSuccess?'alert-success':'alert-danger'" [@visibilityChanged]="visiblityState">
+      {{msg}}
+    </div>
+    <div class="small-search-right input-group mb-2">
+      <input type="text" class="form-control" aria-describedby="basic-addon2" aria-label="Search..." id="title" [(ngModel)]="inputSearch">
+      <div class="input-group-append">
+        <a class="btn btn-secondary animated bounce" (click)="newSearch()">
+          <img src="../../assets/images/icon-search-m.svg">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <ng-container *ngFor="let product of menu;let i=index">
+      <ng-container *ngIf="showProduct(product)">
+        <div class="col-md-3 col-sm-3 col-xs-12 image-main-section animated fadeIn">
+          
+            <div class="img-desc">
+            <div class="col-md-12 col-sm-12 col-xs-12 img-section">
+              <img src="{{product.image}}"> 
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 image-title">
+              <h3>{{product.name}}</h3>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 image-description">
+              <p style="float:left;height:30px;"> Starting from {{product.small}}</p>
+            </div>
+          </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 controls">
+              <a class="btn btn-success add-cart-btn hvr-wobble-skew" [routerLink]="['/detail',i]">View Details</a>
+              &nbsp;
+              <a class="btn btn-success add-cart-btn hvr-wobble-skew" (click)="addToCart(product)">Add to cart</a>
+            </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

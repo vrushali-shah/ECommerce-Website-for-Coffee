@@ -1,0 +1,74 @@
+<div id="container">
+  <div ng2-carouselamos
+       class="slides-wrapper" style="height:200px;"
+       [items]="items"
+       [width]="1500"
+       [$prev]="prev"
+       [$next]="next"
+       [$item]="item">
+  </div>
+</div>
+<ng-template #prev>
+  <img src="/assets/images/left-arrow.png" id="left" style="height:50px;margin-left:-4px;" />
+</ng-template>
+<ng-template #next>
+  <img src="/assets/images/right-arrow.png" id="right" style="height:50px;" />
+</ng-template>
+<ng-template #item let-item let-i="index">
+  <div class="items">
+    <img src="{{ item.name }}">
+  </div>
+</ng-template>
+<!-- end of carousel -->
+
+<div id="services" class="pad-section">
+  <div class="container">
+    <div class="text-left lead BigFont whycoffee" style="font-size:40px;"><strong><b>Why coffee? </b></strong></div><br />
+    <p class="whycoffeecontents" style="font-size:18px;">
+      <i class="fa fa-star"></i>&nbsp;Coffee makes you feel happier.<br />
+      <i class="fa fa-star"></i>&nbsp;Coffee can make you a better athlete.<br />
+      <i class="fa fa-star"></i>&nbsp;Coffee could reduce your risk of developing Type 2 diabetes.<br />
+      <i class="fa fa-star"></i>&nbsp;Drinking coffee could help keep your brain healthier for longer.<br />
+      <i class="fa fa-star"></i>&nbsp;Coffee may make you more intelligent.<br />
+    </p>
+  </div>
+</div>
+<div id="services2" class="pad-section">
+  <div class="container">
+    <br />
+    <div class="row">
+      <div class="col-sm-12 text-center ">
+        <div class="BigFont " style="font-size:x-large;">
+          <button type="submit" class="aboutus learnmore hvr-float-grow" [routerLink]="['/about']">Learn More About Us</button>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-sm-6">
+        <p class="lead" style="font-size:xx-large"><b>Explore Cafe's Nearby </b></p>
+        <a class="btn" [routerLink]="['/findstores']" style="margin-left:20%;">
+          <img src="assets/images/findlocation.jpg" alt="" style="height:50px;width:50px;" />
+        </a>
+      </div>
+      <div class="col-sm-6 text-center">
+        <h2><h1 class="header-title"></h1></h2>
+        <p class="BigFont" style="font-size:x-large;">
+          <strong>
+            <b>
+              Won't you please <a routerLink="/login">SIGN IN</a> or <a routerLink="/register">REGISTER</a>?
+            </b>
+          </strong>
+        </p>
+        <p class="lead"><b>Get Exciting Offers and Discounts! </b></p>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+    <div class="container">
+        <p class="text-right">
+            <b>Copyright &copy; NU Hideout 2018</b>
+        </p>
+    </div>
+</footer>

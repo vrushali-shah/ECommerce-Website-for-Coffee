@@ -1,0 +1,320 @@
+@import '../../scss/main.scss';
+.spinner {
+    width: 100px;
+  }
+.spinner input {
+    text-align: right;
+}
+.input-group-btn-vertical {
+    position: relative;
+    white-space: nowrap;
+    width: 1%;
+    vertical-align: middle;
+    display: table-cell;
+}
+.toast{
+  display: inline;
+  top:10%;
+  left:40%;
+  position: fixed;
+  z-index: 1;
+}
+.input-group-btn-vertical > .btn {
+    display: block;
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    padding: 8px;
+    margin-left: -1px;
+    position: relative;
+    border-radius: 0;
+}
+.input-group-btn-vertical > .btn:first-child {
+    border-top-right-radius: 4px;
+}
+.input-group-btn-vertical > .btn:last-child {
+    margin-top: -2px;
+    border-bottom-right-radius: 4px;
+}
+.input-group-btn-vertical i{
+    position: absolute;
+    top: 0;
+    left: 4px;
+}
+#wrapper {
+    width: 700px;
+    height: 50px;
+}
+#first {
+    float: left;
+    width: 100px;
+    border: 1px ;
+}
+#second {
+    height: 50px;
+}
+
+$color-border: #eee;
+$color-label: #aaa;
+$font-default: 'Open Sans', sans-serif;
+$font-bold: 'Open Sans', sans-serif;
+
+/* Global "table" column settings */
+
+/* This is used as the traditional .clearfix class */
+.group:before,
+.group:after {
+    content: '';
+    display: table;
+} 
+.group:after {
+    clear: both;
+}
+.group {
+    zoom: 1;
+}
+
+/* Apply clearfix in a few places */
+.shopping-cart, .column-labels, .product, .totals-item {
+  @extend .group;
+}
+.column-labels{
+border-bottom: 1px solid $color-border;
+}
+
+/* Body/Header stuff */
+body {
+  padding: 0px 30px 30px 20px;
+  font-family: $font-default;
+  font-weight: 100;
+}
+h1 {
+  font-weight: 100;
+}
+label {
+  color: $color-label;
+}
+.shopping-cart {
+  margin-top: -60px;
+}
+
+/* Column headers */
+.column-labels {
+  label {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    width:10%;
+    float: left;
+  } 
+  .product-image, .product-details, .product-removal {
+    text-indent: -9999px;
+  }
+  .product-image{
+    margin-left: 25%;
+  }
+}
+
+/* Product entries */
+.product {
+  padding: 20px 0 20px 0;
+  border-bottom: 1px solid $color-border;
+ 
+.product-price { float: left; width: 10%; }
+.product-size { float: left; width: 12%; margin-left: 3.5%; }
+.product-line-price { float: left; width: 9%; text-align: right; }
+
+  .product-image {
+    float: left; 
+    width: 20%;
+    text-align: center;
+    img {
+      width: 100px;
+    }
+  }
+  .product-details {
+    float: left; 
+    width: 20%;
+    .product-title {
+      margin-right: 20px;
+      font-family: $font-bold;
+      font-weight: bold;
+    }
+    .product-description {
+      margin: 5px 20px 5px 0;
+      line-height: 1.4em;
+    }
+  }
+  .product-quantity {
+    float: left; 
+    width: 10%;
+    input {
+      width: 40px;
+    }
+  }
+  .remove-product {
+    float: left; 
+    width: 4%;
+    border: 0;
+    padding: 4px 8px;
+    background-color: #c66;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 3px;
+    img{
+      width: 20px;
+      @include filter(brightness(0) invert(1));
+      @include transition(.3s ease-in-out);
+     
+    }
+  } 
+  .remove-product:hover {
+    img{
+      @include transform(rotate(30deg));
+    }
+    background-color: #a44;
+  }
+}
+
+/* Totals section */
+.totals {
+  .totals-item {
+    float: right;
+    clear: both;
+    width: 100%;
+    margin-bottom: 10px;
+    label {
+      float: left;
+      clear: both;
+      width: 79%;
+      text-align: right;
+    }
+    .totals-value {
+      float: right;
+      width: 21%;
+      text-align: right;
+    }
+  }
+  .totals-item-total {
+    font-family: $font-bold;
+  }
+}
+.checkout {
+  float: right;
+  padding: 8px;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 3px;
+  margin: 20px 5px 0 5px;
+  color: $primary-color;
+  border:1px solid rgba($secondary-color,1);
+  background: rgba($secondary-color,1);
+      padding-right: 5px;
+      &:hover{
+          background: rgba($secondary-color,0.8);
+      @include shadow(0px 0px 2px 2px rgba($secondary-color,0.4));
+      }
+}
+/* Make adjustments for tablet */
+@media screen and (max-width: 650px) {
+  
+  .shopping-cart {
+    margin: 0;
+    padding-top: 20px;
+    border-top: 1px solid $color-border;
+  }
+  .column-labels {
+    display: none;
+  }
+  .product-image {
+    float: right;
+    width: auto;
+    img {
+      margin: 0 0 10px 10px;
+    }
+  }
+  .product-details {
+    float: none;
+    margin-bottom: 10px;
+    width: auto;
+  }
+  .product-price {
+    clear: both;
+    width: 70px;
+  }
+  .product-quantity {
+    width: 100px;
+    input {
+      margin-left: 20px;
+    }
+  }
+  .product-quantity:before {
+    content: 'x';
+  }
+  .product-removal {
+    width: auto;
+  }
+  .product-line-price {
+    float: right;
+    width: 70px;
+  }
+}
+/* Make more adjustments for phone */
+@media screen and (max-width: 350px) {
+  .product-removal {
+    float: right;
+  }
+  .product-line-price {
+    float: right;
+    clear: left;
+    width: auto;
+    margin-top: 10px;
+  }
+  .product .product-line-price:before {
+    content: 'Item Total: $';
+  }
+  .totals {
+    .totals-item {
+      label {
+        width: 60%;
+      }   
+    .totals-value {
+        width: 40%;
+      }
+    }
+  }
+}
+#empty{
+  background: rgba($secondary-color,0.6);
+  margin: 100px 365px;
+  width: 500px;
+  height: 80px;
+  font-size: 40px;
+  color: $primary-color;
+  border:1px solid rgba($secondary-color,1);
+  @include round-corners(7px);
+  &:hover{
+    background: rgba($secondary-color,0.8);
+    @include shadow(0px 0px 2px 2px rgba($secondary-color,0.4));
+  }
+}
+#pic-1 button{
+  color: $primary-color;
+  border:1px solid rgba($secondary-color,1);
+  background: rgba($secondary-color,0.6);
+  &:hover{
+      background: rgba($secondary-color,1);
+  @include shadow(0px 0px 2px 2px rgba($secondary-color,0.4));
+  }
+}
+.btn-div{
+  position: absolute;
+  bottom: -300px;
+  padding: 30px;
+  width: inherit;
+  left: 0px;
+  width: 300px;
+  button{
+  &:last-child{
+    float: right;
+  }}
+}

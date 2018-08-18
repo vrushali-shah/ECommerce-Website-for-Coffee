@@ -1,0 +1,68 @@
+@import '../../scss/main.scss';
+.toast{
+  display: inline;
+  top:10%;
+  left:40%;
+  position: fixed;
+  z-index: 1;
+}
+img {
+  max-width: 100%;
+}
+.tab-content {
+  overflow: hidden;
+}
+.card {
+  margin-top: 50px;
+  background:rgba($secondary-color,0.06);
+  padding: 3em;
+  line-height: 1.5em;
+}
+.add-to-cart, .like {
+  padding: 1.2em 1.5em;
+  text-transform: UPPERCASE;
+  font-weight: bold;
+  color: $primary-color;
+  border:1px solid rgba($secondary-color,0.6);
+  background: rgba($secondary-color,1);
+  &:hover{
+    background: rgba($secondary-color,1);
+@include shadow(0px 0px 2px 2px rgba($secondary-color,0.4));
+}
+}
+.like:hover {
+  background: firebrick;
+@include shadow(0px 0px 2px 2px rgba(firebrick,0.4));
+}
+button#liked:focus {
+  background: firebrick;
+}
+.product-size, .product-qty, .action {
+  margin-top: 10px;
+}
+@media screen and (max-width: 996px) {
+  .preview {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (min-width: 997px) {
+  .product-title, .price {
+    text-transform: UPPERCASE;
+    font-weight: bold;
+  }
+  .product-title, .product-description {
+    margin-bottom: 15px;
+  }
+  .product-title {
+    margin-top: 0;
+  }
+}
+.review_details{
+  background-color:lightgray;
+}
+#coffee_review{
+  width:400px;
+}
+.toast{
+  display: flex;
+}

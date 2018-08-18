@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-sm">
+  <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2" id="navbarMenu">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a href="#" class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link" routerLink="/menu" routerLinkActive="active">Menu</a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link" routerLink="/findstores" routerLinkActive="active">Find store</a>
+    </li>
+  </ul>
+  </div>
+   <div class="mx-auto order-0">
+        <a class="navbar-brand mx-auto cafename hvr-pulse-shrink" href="#"><img src="https://image.flaticon.com/icons/svg/135/135764.svg">
+          NU Hideout</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+       <ul class="navbar-nav ml-auto">
+         <li *ngIf="!auth.isLoggedIn()"><a class="nav-link" routerLink="/login">Sign in</a></li>
+        
+         <li id="logout" *ngIf="auth.isLoggedIn()"><a class="nav-link" (click)="onLogout()">Logout</a></li>
+         <li class="nav-item pull-right cart hvr-wobble-horizontal">
+           <a href="#" class="nav-link" routerLink="/cart" routerLinkActive="active">
+            <img src="https://image.flaticon.com/icons/svg/126/126083.svg"></a>
+         </li>
+         <li id="profile" *ngIf="auth.isLoggedIn()" routerLink="/profile">
+           <img  [src]="avatar">
+           <a class="nav-link">{{ auth.getUserDetails()?.name }}</a>
+          </li>
+       </ul>
+    </div>
+</nav>
